@@ -25,7 +25,7 @@ const tabbarData = reactive([
   },
   {
     icon: "gem-o",
-    title: "工具",
+    title: "更多",
     to: {
       name: "Tools"
     }

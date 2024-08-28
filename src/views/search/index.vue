@@ -14,7 +14,6 @@ interface Series {
 
 let list = ref<Series>(series);
 let search = ref("");
-console.log(series);
 
 const onSearch = () => {
   let l = [];
