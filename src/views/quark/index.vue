@@ -40,7 +40,7 @@ const onToQuark = () => {
     <div class="my-[5px]">
       第二天，你继续登录夸克网盘可以继续领容量，以后每天登录每天领，还会翻倍，而且是永久容量，第七天免费领取1024MB！
     </div>
-    <div class="my-[5px]"><img src="./step.JPG" /></div>
+    <div class="my-[5px]"><img src="./step_get.jpg" /></div>
     <div class="text-lg my-[10px]">3. 夸克网盘缺点</div>
     <div class="text-[red] my-[5px]">
       夸克网盘唯一缺点是，和百度网盘一样，不买会员存个文件慢得像蜗牛，买了会员快得像火箭!
