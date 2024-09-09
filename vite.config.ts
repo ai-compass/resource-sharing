@@ -45,7 +45,8 @@ export default defineConfig(({ mode }) => {
       createHtmlPlugin({
         inject: {
           data: {
-            ENABLE_ERUDA: env.VITE_ENABLE_ERUDA || "false"
+            ENABLE_ERUDA: env.VITE_ENABLE_ERUDA || "false",
+            ENV: env.VITE_ENV || ""
           }
         }
       }),

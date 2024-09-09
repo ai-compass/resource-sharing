@@ -1,4 +1,5 @@
 import Layout from "@/layout/index.vue";
+import DetailLayout from "@/layout/detail.vue";
 import type { RouteRecordRaw } from "vue-router";
 import Search from "@/views/search/index.vue";
 
@@ -14,7 +15,7 @@ const routes: Array<RouteRecordRaw> = [
         name: "Search",
         component: Search,
         meta: {
-          title: "美剧查询"
+          title: "搜索"
         }
       },
       {
@@ -22,7 +23,7 @@ const routes: Array<RouteRecordRaw> = [
         name: "Tools",
         component: () => import("@/views/tools/index.vue"),
         meta: {
-          title: "更多"
+          title: "分类"
         }
       },
       {
@@ -32,6 +33,29 @@ const routes: Array<RouteRecordRaw> = [
         meta: {
           title: "说明",
           noCache: true
+        }
+      }
+    ]
+  },
+  {
+    path: "/detail",
+    name: "Detail",
+    component: DetailLayout,
+    children: [
+      {
+        path: "quark-course",
+        name: "QuarkCourse",
+        component: () => import("@/views/quark/index.vue"),
+        meta: {
+          title: "免费领空间"
+        }
+      },
+      {
+        path: "list/:type/:from/:name",
+        name: "List",
+        component: () => import("@/views/list/index.vue"),
+        meta: {
+          title: "详情"
         }
       }
     ]

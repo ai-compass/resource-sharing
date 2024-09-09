@@ -9,6 +9,7 @@
     />
     <link rel="icon" href="/logo.svg" />
     <title>资源分享</title>
+    <% if (ENV === "production") { %>
     <script>
       var _hmt = _hmt || [];
       (function() {
@@ -18,6 +19,7 @@
         s.parentNode.insertBefore(hm, s);
       })();
     </script>
+    <% } %>
   </head>
   <body>
     <div id="app">

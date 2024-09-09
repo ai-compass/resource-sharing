@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import router from "@/router";
+import { ref } from "vue";
+const activeIndex = ref(0);
+
 const list = [
   {
     name: "全部资源",
@@ -13,8 +17,8 @@ const list = [
     link: "https://pan.quark.cn/s/26fdffc7c3df"
   },
   {
-    name: "边水往事",
-    link: "https://pan.quark.cn/s/aa4b808a68c4"
+    name: "闪婚老伴是豪门",
+    link: "https://pan.quark.cn/s/0c6640f8daa7"
   },
   {
     name: "藏海花",
@@ -29,10 +33,76 @@ const list = [
     link: "https://pan.quark.cn/s/e79005e86a73"
   }
 ];
+
+const link = [
+  {
+    text: "剧集区",
+    children: [
+      {
+        id: 1,
+        from: "剧集区",
+        text: "国产",
+        link: "/detail/list/series/zh"
+      },
+      {
+        id: 2,
+        from: "剧集区",
+        text: "美国",
+        link: "/detail/list/series/en"
+      }
+    ]
+  },
+  {
+    text: "电影区",
+    children: [
+      {
+        id: 3,
+        from: "电影区",
+        text: "国产",
+        link: "/detail/list/movie/zh"
+      },
+      {
+        id: 4,
+        from: "电影区",
+        text: "美国",
+        link: "/detail/list/movie/en"
+      }
+    ]
+  },
+  {
+    text: "软件区",
+    children: [
+      {
+        id: 5,
+        from: "软件区",
+        text: "电脑",
+        link: "/detail/list/soft/pc"
+      },
+      {
+        id: 6,
+        from: "软件区",
+        text: "手机",
+        link: "/detail/list/soft/phone"
+      }
+    ]
+  }
+];
+
+const onClickItem = item => {
+  console.log(item);
+  router.push(`${item.link}/${item.from}|${item.text}`);
+};
 </script>
 
 <template>
-  <van-notice-bar
+  <van-tree-select
+    v-model:main-active-index="activeIndex"
+    style="height: calc(100vh - var(--van-nav-bar-height) - var(--van-tabbar-height)"
+    :items="link"
+    @click-item="onClickItem"
+  />
+
+  <!-- <van-notice-bar
     :scrollable="false"
     text="找到喜欢的剧 然后保存后观看，不然只能看2分钟，看那个保存那个"
   />
@@ -59,7 +129,7 @@ const list = [
     <div class="text-[red]">
       找到喜欢的剧 然后保存后观看，不然只能看2分钟，看那个保存那个
     </div>
-  </div>
+  </div> -->
 </template>
 
 <style scoped></style>

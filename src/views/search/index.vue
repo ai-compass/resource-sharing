@@ -1,34 +1,53 @@
 <script setup lang="ts" name="Search">
 import { ref, reactive } from "vue";
+import { useRouter } from "vue-router";
+import type { Item, List } from "@/typings/list";
 
-import series from "@/json/series.json";
+import en_series from "@/json/series/en_series.json";
+import zh_series from "@/json/series/zh_series.json";
+import en_movie from "@/json/movie/en_movie.json";
+import zh_movie from "@/json/movie/zh_movie.json";
+import pc_soft from "@/json/soft/pc_soft.json";
 
-interface SeriesItem {
-  name: string;
-  link: string;
-}
+import { mergeJSON } from "@/utils/merge-list-json";
 
-interface Series {
-  [key: string]: SeriesItem[];
-}
+const router = useRouter();
 
-let list = ref<Series>(series);
+const list_json = mergeJSON([
+  en_series,
+  zh_series,
+  en_movie,
+  zh_movie,
+  pc_soft
+]);
+
+console.log("list_json", list_json);
+
+let list = ref<List>(list_json);
 let search = ref("");
 
 const onSearch = () => {
   let l = [];
-  for (let k in series) {
-    l = [...l, ...series[k]];
+  for (let k in list_json) {
+    l = [...l, ...list_json[k]];
   }
   if (!search.value) {
-    list.value = series;
+    list.value = list_json;
   } else {
     list.value = {
       搜索结果: l.filter(item =>
-        item.name.includes(search.value)
-      ) as SeriesItem[]
-    } as Series;
+        item.name.toLowerCase().includes(search.value.toLowerCase())
+      ) as Item[]
+    } as List;
   }
+};
+
+const onLinkQuarkCourse = () => {
+  router.push("/detail/quark-course");
+};
+
+const onLink = (name: string, link: string) => {
+  console.log(name, link);
 };
 </script>
 
@@ -40,12 +59,19 @@ const onSearch = () => {
   <van-notice-bar
     wrapable
     :scrollable="false"
-    text="点击任意剧名，即可前往保存"
+    text="点击任意内容，即可前往保存"
+  />
+  <van-notice-bar
+    wrapable
+    :scrollable="false"
+    text="👉 免费领取夸克网盘1TB空间，夸克每天领取容量教程"
+    color="red"
+    @click="onLinkQuarkCourse"
   />
   <form action="/">
     <van-search
       v-model="search"
-      placeholder="请输入搜索美剧关键词"
+      placeholder="请输入搜索关键词"
       @search="onSearch"
     />
   </form>
@@ -53,10 +79,18 @@ const onSearch = () => {
     <template v-for="(v, k) in list" :key="k">
       <van-index-anchor :index="k" />
 
-      <van-cell v-for="l in v" :key="l.link" :url="l.link" is-link>
+      <van-cell
+        v-for="l in v"
+        :key="l.link"
+        :url="l.link"
+        is-link
+        target="_blank"
+        @click="onLink(l.name, l.link)"
+      >
         <!-- 使用 title 插槽来自定义标题 -->
         <template #title>
-          <van-text-ellipsis :content="l.name" />
+          {{ l.name }}
+          <!-- <van-text-ellipsis :content="" /> -->
         </template>
       </van-cell>
     </template>
