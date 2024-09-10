@@ -95,6 +95,7 @@ const onLink = (name: string, link: string) => {
       </van-cell>
     </template>
   </van-index-bar>
+  <van-back-top :bottom="55" :right="20" />
 </template>
 
 <style scoped></style>
