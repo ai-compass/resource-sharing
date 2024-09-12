@@ -23,7 +23,20 @@ const list_json = mergeJSON([
 
 console.log("list_json", list_json);
 
-let list = ref<List>(list_json);
+const special_list: List = {
+  整合内容: [
+    {
+      name: "玛丽苏系列",
+      link: "https://pan.quark.cn/s/6dd2fcb6d021"
+    },
+    {
+      name: "疼痛的爱系列",
+      link: "https://pan.quark.cn/s/9d1d0c178d27"
+    }
+  ]
+};
+
+let list = ref<List>({ ...special_list, ...list_json });
 let search = ref("");
 
 const onSearch = () => {
@@ -32,9 +45,10 @@ const onSearch = () => {
     l = [...l, ...list_json[k]];
   }
   if (!search.value) {
-    list.value = list_json;
+    list.value = { ...special_list, ...list_json };
   } else {
     list.value = {
+      ...special_list,
       搜索结果: l.filter(item =>
         item.name.toLowerCase().includes(search.value.toLowerCase())
       ) as Item[]
