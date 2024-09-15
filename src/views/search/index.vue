@@ -26,12 +26,18 @@ console.log("list_json", list_json);
 const special_list: List = {
   整合内容: [
     {
-      name: "玛丽苏系列",
+      color: "red",
+      name: "🔥玛丽苏系列",
       link: "https://pan.quark.cn/s/6dd2fcb6d021"
     },
     {
-      name: "疼痛的爱系列",
+      color: "red",
+      name: "🔥疼痛的爱系列",
       link: "https://pan.quark.cn/s/9d1d0c178d27"
+    },
+    {
+      name: "👉 更多系列",
+      link: "/detail/disorder-list/all/collection/整合区|合集"
     }
   ]
 };
@@ -62,6 +68,11 @@ const onLinkQuarkCourse = () => {
 
 const onLink = (name: string, link: string) => {
   console.log(name, link);
+  if (link.startsWith("http")) {
+    window.open(link);
+  } else {
+    router.push(link);
+  }
 };
 </script>
 
@@ -78,7 +89,7 @@ const onLink = (name: string, link: string) => {
   <van-notice-bar
     wrapable
     :scrollable="false"
-    text="👉 免费领取夸克网盘1TB空间，夸克每天领取容量教程"
+    text="🔥 免费领取夸克网盘1TB空间，夸克每天领取容量教程"
     color="red"
     @click="onLinkQuarkCourse"
   />
@@ -96,14 +107,14 @@ const onLink = (name: string, link: string) => {
       <van-cell
         v-for="l in v"
         :key="l.link"
-        :url="l.link"
         is-link
         target="_blank"
         @click="onLink(l.name, l.link)"
       >
         <!-- 使用 title 插槽来自定义标题 -->
         <template #title>
-          {{ l.name }}
+          <span :style="{ color: l.color || '' }">{{ l.name }}</span>
+
           <!-- <van-text-ellipsis :content="" /> -->
         </template>
       </van-cell>

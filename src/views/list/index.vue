@@ -44,7 +44,7 @@ const onLinkQuarkCourse = () => {
   <van-notice-bar
     wrapable
     :scrollable="false"
-    text="👉 免费领取夸克网盘1TB空间，夸克每天领取容量教程"
+    text="🔥 免费领取夸克网盘1TB空间，夸克每天领取容量教程"
     color="red"
     @click="onLinkQuarkCourse"
   />

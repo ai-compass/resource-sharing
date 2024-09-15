@@ -57,6 +57,14 @@ const routes: Array<RouteRecordRaw> = [
         meta: {
           title: "详情"
         }
+      },
+      {
+        path: "disorder-list/:type/:from/:name",
+        name: "DisorderList",
+        component: () => import("@/views/list/disorderList.vue"),
+        meta: {
+          title: "详情"
+        }
       }
     ]
   }
