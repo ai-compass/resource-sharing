@@ -2,7 +2,7 @@
 import { ref, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useNavTitleStore } from "@/store/modules/navTitle";
-import type { Item, List } from "@/typings/list";
+import type { Item } from "@/typings/list";
 const route = useRoute();
 const router = useRouter();
 const { type, from, name } = route.params;
