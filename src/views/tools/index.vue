@@ -85,6 +85,23 @@ const link = [
         link: "/detail/list/soft/phone"
       }
     ]
+  },
+  {
+    text: "书籍区",
+    children: [
+      {
+        id: 7,
+        from: "书籍区",
+        text: "有声书",
+        link: "/detail/list/book/audio"
+      },
+      {
+        id: 8,
+        from: "书籍区",
+        text: "电子书",
+        link: "/detail/list/book/ebook"
+      }
+    ]
   }
 ];
 
