@@ -32,8 +32,9 @@ const special_list: List = {
     },
     {
       color: "red",
-      name: "🔥疼痛的爱系列",
-      link: "https://pan.quark.cn/s/9d1d0c178d27"
+      name: "🔞疼痛的爱系列",
+      link: "/detail/bdsm"
+      // link: "https://pan.quark.cn/s/9d1d0c178d27"
     },
     {
       name: "👉 更多系列",

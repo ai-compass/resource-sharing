@@ -51,13 +51,21 @@ const routes: Array<RouteRecordRaw> = [
         }
       },
       {
-        path: "list/:type/:from/:name",
-        name: "List",
-        component: () => import("@/views/list/index.vue"),
+        path: "bdsm",
+        name: "BDSM",
+        component: () => import("@/views/thunder/index.vue"),
         meta: {
-          title: "详情"
+          title: "疼痛的爱系列"
         }
       },
+      // {
+      //   path: "list/:type/:from/:name",
+      //   name: "List",
+      //   component: () => import("@/views/list/index.vue"),
+      //   meta: {
+      //     title: "详情"
+      //   }
+      // },
       {
         path: "disorder-list/:type/:from/:name",
         name: "DisorderList",
