@@ -1,0 +1,1 @@
+const n=[{name:"玛丽苏系列",link:"https://pan.quark.cn/s/ef25b2b51175"},{name:"骨科系列",link:"https://pan.quark.cn/s/f59aed13d015"},{name:"欧美大C度系列",link:"https://pan.quark.cn/s/3130f810982c"},{name:"那些为艺术献身的作品",link:"https://pan.quark.cn/s/319e152026b8"}];export{n as default};
