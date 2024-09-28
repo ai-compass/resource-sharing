@@ -80,7 +80,7 @@ const onLink = (name: string, link: string) => {
 <template>
   <van-notice-bar
     :scrollable="false"
-    text="输入关键字搜索，如唐顿庄园可搜索：唐、顿、庄、园、唐顿..."
+    text="加微信：wanqing13_14，免费找全网资源"
   />
   <van-notice-bar
     wrapable
