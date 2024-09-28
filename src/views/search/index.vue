@@ -78,10 +78,10 @@ const onLink = (name: string, link: string) => {
 </script>
 
 <template>
-  <van-notice-bar
-    :scrollable="false"
-    text="加微信：wanqing13_14，免费找全网资源"
-  />
+  <van-notice-bar color="#1989fa" background="#ecf9ff" left-icon="info-o">
+    加微信：<span class="text-[red]">wanqing13_14</span>，免费找全网资源
+  </van-notice-bar>
+
   <van-notice-bar
     wrapable
     :scrollable="false"
