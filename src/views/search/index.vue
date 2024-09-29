@@ -79,7 +79,7 @@ const onLink = (name: string, link: string) => {
 
 <template>
   <van-notice-bar color="#1989fa" background="#ecf9ff" left-icon="info-o">
-    加微信：<span class="text-[red]">wanqing13_14</span>，免费找全网资源
+    加微信：<span class="text-[red]">wqjs9527</span>，免费找全网资源
   </van-notice-bar>
 
   <van-notice-bar
