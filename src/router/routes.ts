@@ -58,14 +58,14 @@ const routes: Array<RouteRecordRaw> = [
           title: "疼痛的爱系列"
         }
       },
-      // {
-      //   path: "list/:type/:from/:name",
-      //   name: "List",
-      //   component: () => import("@/views/list/index.vue"),
-      //   meta: {
-      //     title: "详情"
-      //   }
-      // },
+      {
+        path: "list/:type/:from/:name",
+        name: "List",
+        component: () => import("@/views/list/index.vue"),
+        meta: {
+          title: "详情"
+        }
+      },
       {
         path: "disorder-list/:type/:from/:name",
         name: "DisorderList",

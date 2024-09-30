@@ -102,10 +102,22 @@ const link = [
         link: "/detail/list/book/ebook"
       }
     ]
+  },
+  {
+    text: "其他区",
+    children: [
+      {
+        id: 9,
+        from: "其他区",
+        text: "动态壁纸",
+        link: "https://pan.quark.cn/s/71056a75dc66"
+      }
+    ]
   }
 ];
 
 const onClickItem = item => {
+  if (item.link.includes("https")) return window.open(item.link);
   router.push(`${item.link}/${item.from}|${item.text}`);
 };
 </script>
