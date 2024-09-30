@@ -21,8 +21,6 @@ const list_json = mergeJSON([
   pc_soft
 ]);
 
-console.log("list_json", list_json);
-
 const special_list: List = {
   整合内容: [
     {
@@ -68,7 +66,6 @@ const onLinkQuarkCourse = () => {
 };
 
 const onLink = (name: string, link: string) => {
-  console.log(name, link);
   if (link.startsWith("http")) {
     window.open(link);
   } else {

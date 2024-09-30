@@ -106,7 +106,6 @@ const link = [
 ];
 
 const onClickItem = item => {
-  console.log(item);
   router.push(`${item.link}/${item.from}|${item.text}`);
 };
 </script>
