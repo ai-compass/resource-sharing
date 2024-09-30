@@ -93,13 +93,13 @@ const link = [
         id: 7,
         from: "书籍区",
         text: "有声书",
-        link: "/detail/list/book/audio"
+        link: "https://pan.quark.cn/s/55840118be3f"
       },
       {
         id: 8,
         from: "书籍区",
         text: "电子书",
-        link: "/detail/list/book/ebook"
+        link: "https://pan.quark.cn/s/d92d47caaebb"
       }
     ]
   },
