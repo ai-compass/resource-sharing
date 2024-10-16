@@ -75,6 +75,11 @@ const routes: Array<RouteRecordRaw> = [
         }
       }
     ]
+  },
+  {
+    path: "/kdocs/update",
+    name: "Kdocs",
+    component: () => import("@/views/kdocs/index.vue")
   }
 ];
 
