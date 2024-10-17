@@ -17,6 +17,11 @@ const typeList = [
     text: "电影",
     value:
       "https://www.kdocs.cn/api/v3/office/async_job/webhook/37d98546ad464d4a6b00598db659f83f"
+  },
+  {
+    text: "电子书",
+    value:
+      "https://www.kdocs.cn/api/v3/office/async_job/webhook/668eb006134e41b67c9c831744ea90b0"
   }
 ];
 
