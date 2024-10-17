@@ -3,8 +3,12 @@ import { ref } from "vue";
 import axios from "axios";
 import { showToast, showLoadingToast } from "vant";
 
-const form = ref({ type: "", text: "", password: "" });
-const type = ref("");
+const form = ref({
+  type: "https://www.kdocs.cn/api/v3/office/async_job/webhook/e5a7b07950fd471f51e7c95248e3bc30",
+  text: "",
+  password: ""
+});
+const type = ref("美剧");
 const showPicker = ref(false);
 
 const typeList = [
