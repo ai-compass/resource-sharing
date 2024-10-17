@@ -34,7 +34,7 @@ const onSubmit = () => {
     forbidClick: true
   });
   axios
-    .post("https://121.40.201.86:3000/kdocs/update", {
+    .post("http://121.40.201.86:3000/kdocs/update", {
       type,
       name,
       link,
