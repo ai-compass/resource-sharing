@@ -64,14 +64,6 @@ const onConfirm = ({ selectedOptions }) => {
   showPicker.value = false;
 };
 
-const test = () => {
-  showToast({
-    className: "custom-meassage-toast",
-    message: "测试",
-    duration: 0
-  });
-};
-
 function extractNameAndLink(text) {
   // 匹配名称：被「」包围的内容
   const nameRegex = /「(.*?)」/;
@@ -146,7 +138,6 @@ function extractNameAndLink(text) {
       <van-button round block type="primary" native-type="submit">
         提交
       </van-button>
-      <van-button round block type="primary" @click="test"> 测试 </van-button>
     </div>
   </van-form>
 </template>
