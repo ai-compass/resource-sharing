@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import axios from "axios";
-import { showToast } from "vant";
+import { showToast, showLoadingToast } from "vant";
 
 const form = ref({ type: "", text: "", password: "" });
 const type = ref("");
@@ -25,9 +25,16 @@ const onSubmit = () => {
 
   const { name, link } = extractNameAndLink(text);
 
-  console.log("submit", type, name, link);
+  const toast = showLoadingToast({
+    className: "custom-toast",
+    overlayClass: "custom-toast-overlay",
+    overlay: true,
+    duration: 0,
+    message: "加载中...",
+    forbidClick: true
+  });
   axios
-    .post("http://121.40.201.86:3000/kdocs/update", {
+    .post("https://121.40.201.86:3000/kdocs/update", {
       type,
       name,
       link,
@@ -36,10 +43,17 @@ const onSubmit = () => {
     .then(res => {
       console.log(res);
       const { code, message } = res.data;
+      toast.close();
       if (code === 200) {
-        showToast("提交成功");
+        showToast({
+          className: "custom-meassage-toast",
+          message: "提交成功"
+        });
       } else {
-        showToast(message);
+        showToast({
+          className: "custom-meassage-toast",
+          message
+        });
       }
     });
 };
@@ -48,6 +62,14 @@ const onConfirm = ({ selectedOptions }) => {
   type.value = selectedOptions[0]?.text;
   form.value.type = selectedOptions[0]?.value;
   showPicker.value = false;
+};
+
+const test = () => {
+  showToast({
+    className: "custom-meassage-toast",
+    message: "测试",
+    duration: 0
+  });
 };
 
 function extractNameAndLink(text) {
@@ -124,8 +146,25 @@ function extractNameAndLink(text) {
       <van-button round block type="primary" native-type="submit">
         提交
       </van-button>
+      <van-button round block type="primary" @click="test"> 测试 </van-button>
     </div>
   </van-form>
 </template>
 
-<style scoped></style>
+<style>
+.custom-meassage-toast {
+  padding: 8px 16px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 8px;
+}
+.custom-toast {
+  background-color: unset !important;
+}
+.custom-toast .van-loading {
+  text-align: center;
+}
+.custom-toast .van-toast__text {
+  color: #fff !important;
+}
+</style>
