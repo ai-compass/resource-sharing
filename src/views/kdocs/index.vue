@@ -25,7 +25,12 @@ const typeList = [
   {
     text: "电子书",
     value:
-      "https://www.kdocs.cn/api/v3/office/async_job/webhook/668eb006134e41b67c9c831744ea90b0"
+      "https://www.kdocs.cn/api/v3/office/async_job/webhook/4fffd2ede9b84c3172a80dc5a15fe0ee"
+  },
+  {
+    text: "文件模板",
+    value:
+      "https://www.kdocs.cn/api/v3/office/async_job/webhook/6582d9d0fbaf4fde4a7a0f0959954e01"
   }
 ];
 
