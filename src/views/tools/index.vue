@@ -39,6 +39,12 @@ const link = [
     text: "剧集区",
     children: [
       {
+        id: 1.3,
+        from: "剧集区",
+        text: "短剧",
+        link: "/detail/list/series/short"
+      },
+      {
         id: 1.1,
         from: "剧集区",
         text: "国产",

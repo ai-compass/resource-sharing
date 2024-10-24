@@ -5,17 +5,41 @@ import type { Item, List } from "@/typings/list";
 
 import en_series from "@/json/series/en_series.json";
 import zh_series from "@/json/series/zh_series.json";
+import short_series from "@/json/series/short_series.json";
 import en_movie from "@/json/movie/en_movie.json";
 import zh_movie from "@/json/movie/zh_movie.json";
 import pc_soft from "@/json/soft/pc_soft.json";
 
 import { mergeJSON } from "@/utils/merge-list-json";
 
+// import { pinyin } from "pinyin-pro";
+// import listl from "./list";
+
+// const obj = {};
+
+// for (let i = 0; i < listl.length; i++) {
+//   const name = listl[i]["文件名"];
+//   const link = listl[i]["链接"];
+//   const r = pinyin(name[0], {
+//     pattern: "first", // 指定模式为首字母
+//     toneType: "none" // 指定不使用声调
+//   }).toUpperCase();
+//   if (!obj[r]) obj[r] = [];
+//   if (obj[r].every(i => i !== name)) {
+//     obj[r].push({
+//       name: name,
+//       link: link
+//     });
+//   }
+// }
+// console.log(obj);
+
 const router = useRouter();
 
 const list_json = mergeJSON([
   en_series,
   zh_series,
+  short_series,
   en_movie,
   zh_movie,
   pc_soft
