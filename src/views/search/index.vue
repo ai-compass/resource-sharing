@@ -1,6 +1,6 @@
 <script setup lang="ts" name="Search">
 import { ref, reactive } from "vue";
-import { useRouter } from "vue-router";
+import { useRouter, useRoute } from "vue-router";
 import type { Item, List } from "@/typings/list";
 
 import en_series from "@/json/series/en_series.json";
@@ -35,6 +35,10 @@ import { mergeJSON } from "@/utils/merge-list-json";
 // console.log(obj);
 
 const router = useRouter();
+const route = useRoute();
+const query = ref(route.query.from);
+
+console.log(query.value);
 
 const list_json = mergeJSON([
   en_series,
@@ -99,7 +103,12 @@ const onLink = (name: string, link: string) => {
 </script>
 
 <template>
-  <van-notice-bar color="#1989fa" background="#ecf9ff" left-icon="info-o">
+  <van-notice-bar
+    v-if="query !== 'google'"
+    color="#1989fa"
+    background="#ecf9ff"
+    left-icon="info-o"
+  >
     加微信：<span class="text-[red]">wqjs9527</span>，免费找全网资源
   </van-notice-bar>
 
